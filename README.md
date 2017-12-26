@@ -13,27 +13,15 @@ The system is safe and unbreakable because:
 
 ## Compilation and execution
 ```
-g++ main_encrypt.cpp
+g++ main.cpp
 ./a.out
-```
-
-## Output
-
-```
-  message to send: HELLO WORLD
-```
-```
-encrypted message: QUxURFcgSU1CUEI=
-```
-```
-decrypted message: HELLO WORLD
 ```
 
 ## Encoding/Decoding JSON format
 
 ### Example
 ```
-std::string msg = "{\"PARAM\": 123, \"MSG\": \"HELLO WORLD\"}";
+std::string msg = "{\"id\":1,\"method\":\"service.subscribe\",\"params\":[\"myapp/0.1c\", null,\"0.0.0.0\",\"80\"]}";
 std::string key = "THISISMYKEY";
 std::cout << "  message to send: " << msg << std::endl;
 std::string encrypted_msg = encrypt(msg, key);
@@ -44,7 +32,7 @@ std::cout << "decrypted message: " << decrypted_msg << std::endl;
 
 ### Output
 ```
-  message to send: {"PARAM": 123, "MSG": "HELLO WORLD"}
-encrypted message: eyJYU1pTWSI6IElFVCwgIkVFRSI6ICJPTURURyBVWVZKVyJ9
-decrypted message: {"PARAM": KLM, "MSG": "HELLO WORLD"}
+  message to send: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
+encrypted message: X5g7wjjTllj1ItCxShWUb77PKJsfP VNMAB7VtqaLCccGTr0ijkjxqw0IutQvXfSFK4OKo8cnpD1Lge0pdMCZf0fqQ8bjjFjkNn1h pBtdwNJD==
+decrypted message: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
 ```
