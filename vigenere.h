@@ -33,7 +33,7 @@ std::string encrypt_vigenere(std::string& msg, std::string& key) {
     //encryption
     for(i = 0; i < msgLen; ++i) {
     	// std::cout << msg[i] << " " << isalnum(msg[i]) << std::endl;
-    	if(isalnum(msg[i])) {
+    	if(isalpha(msg[i])) {
     		encryptedMsg[i] = ((msg[i] + newKey[i]) % 26) + 'A';
     	} else {
     		encryptedMsg[i] = msg[i];
@@ -50,7 +50,7 @@ std::string decrypt_vigenere(std::string& encryptedMsg, std::string& newKey) {
 	std::string decryptedMsg(msgLen, 'x');
 	int i;
     for(i = 0; i < msgLen; ++i) {
-    	if(isalnum(encryptedMsg[i])) {
+    	if(isalpha(encryptedMsg[i])) {
     		decryptedMsg[i] = (((encryptedMsg[i] - newKey[i]) + 26) % 26) + 'A';
     	} else {
     		decryptedMsg[i] = encryptedMsg[i];
