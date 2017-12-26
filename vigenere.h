@@ -12,7 +12,7 @@ std::string AVAILABLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 int index(char c) {
 	for(int ii = 0; ii < AVAILABLE_CHARS.size(); ii++) {
 		if(AVAILABLE_CHARS[ii] == c) {
-			std::cout << ii << " " << c << std::endl;
+			// std::cout << ii << " " << c << std::endl;
 			return ii;
 		}
 	}
