@@ -7,9 +7,9 @@ We want to send the message `HELLO WORLD` with the Vigenere key `THISISMYKEY`. I
 - The encrypted message is sent through an unsecured channel.
 - Bob gets the message and decrypts it with the Vigenere private key. He then decodes it with base64.
 
-____________________________________________________________________________________________________
-**Message -> B64 ENCODE -> VIGENERE ENCRYPT -> encrypted message -> VIGENERE DECRYPT -> B64 DECODE**
-____________________________________________________________________________________________________
+_______________________________________________________________________________________________________________
+**Message -> B64 ENCODE -> VIGENERE ENCRYPT -> encrypted message -> VIGENERE DECRYPT -> B64 DECODE -> Message**
+_______________________________________________________________________________________________________________
 
 The system is safe and unbreakable because:
 - Vigenere cipher is vulnerable to bruteforce attacks with dictionaries. Our system encodes first the string in base64. All frequencies and other attacks are void.
