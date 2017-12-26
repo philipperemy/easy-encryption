@@ -45,9 +45,19 @@ wrapper.decrypt(encrypted_message, key): returns decrypted message
 
 ## Compilation and execution
 ```
-g++ main.cpp
-./a.out
+g++ cl.cpp
+./a.out "Hello world" MYPRIVATEKEY 0
+# Usage: ./a.out message key (0:encrypt|1:decrypt)
 ```
+
+The encrypted message is: `ttz9JqxZHBClNtu=`.
+
+```
+./a.out ttz9JqxZHBClNtu= MYPRIVATEKEY 1
+# Usage: ./a.out message key (0:encrypt|1:decrypt)
+```
+
+The decrypted message is `Hello world`.
 
 ## Python wrapper
 ```
