@@ -1,11 +1,15 @@
 # Easy Encryption
-A very simple C++ module to encrypt/decrypt strings based on B64 and Vigenere ciper (symmetric cipher).
+A very simple yet powerful standalone C++ module (API) to encrypt/decrypt strings based on B64 and Vigenere ciper (symmetric cipher).
 
-We want to send the message `HELLO WORLD` with the vigenere key `THISISMYKEY`. 
+We want to send the message `HELLO WORLD` with the Vigenere key `THISISMYKEY`. It works as follows:
 
-NB: In order to have an uncompromised system, we need to choose a very long key (always be longer than the longest message to send).
+- Alice encodes in base64 the message, then uses the Vigenere private key to encrypt the message.
+- The encrypted message is sent through an unsecured channel.
+- Bob gets the message and decrypts it with the Vigenere private key. He then decodes it with base64.
 
-The reason why we use B64 is because Vigenere works only on alphabet (or on a finite and pre-defined set). We want to be able to encode characters such as `{` and `\`. So it works as an obfuscator.
+The system is safe and unbreakable because:
+- Vigenere cipher is vulnerable to bruteforce attacks with dictionaries. Our system encodes first the string in base64. All frequencies and other attacks are void.
+- A very large key is used for the Vigenere encryption. We strongly encourage the key to be larger than any message to be sent. The reason is that Vigenere is almost uncrackable if the cipher key is extremely long compared to the average message length.
 
 ## Compilation and execution
 ```
