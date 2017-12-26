@@ -13,7 +13,7 @@ int main() {
 
 	// vigenere encoding
 
-    std::string msg = "PHILIPPE123 AND I FEEL DAMN GREAT";
+    std::string msg = "HELLO WORLD";
     std::string key = "HELLOHELMYLONGESTKEYFSKFSKLFKLSDKLFSDKFSFDSFSD";
     std::string encryptedMsg = encrypt_vigenere(msg, key);
     std::string newKey = extend_key(msg, key);
