@@ -35,6 +35,13 @@ g++ main.cpp
 ./a.out
 ```
 
+## Python wrapper
+```
+rm a.out
+g++ cl.cpp
+python3 wrapper.py
+```
+
 ## Example - Encoding/Decoding JSON format
 
 ### Source code
