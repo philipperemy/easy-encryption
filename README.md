@@ -7,9 +7,14 @@ We want to send the message `HELLO WORLD` with the Vigenere key `THISISMYKEY`. I
 - The encrypted message is sent through an unsecured channel.
 - Bob gets the message and decrypts it with the Vigenere private key. He then decodes it with base64.
 
+____________________________________________________________________________________________________
+**Message -> B64 ENCODE -> VIGENERE ENCRYPT -> encrypted message -> VIGENERE DECRYPT -> B64 DECODE**
+____________________________________________________________________________________________________
+
 The system is safe and unbreakable because:
 - Vigenere cipher is vulnerable to bruteforce attacks with dictionaries. Our system encodes first the string in base64. All frequencies and other attacks are void.
 - A very large key is used for the Vigenere encryption. We strongly encourage the key to be larger than any message to be sent. The reason is that Vigenere is almost uncrackable if the cipher key is extremely long compared to the average message length.
+- The reason why we apply b64 encode BEFORE Vigenere is because it's very easy for somebody to apply a b64 decode and see about the structure of the message. For example, if we send `{"hello":123}`, an attacker can sniff the message, b64 decode the message and get `{"qsggn":ygf}`. Of course the attacker still needs the Vigenere cipher key, but at least, he can get a pretty clear idea that JSON format messages are sent in the communication channel. The way to avoid this is to encode first in b64 then encrypt it with the Vigenere key. If the attacker tries to b64 decode first, it will see a random string of weird characters.
 
 ## Compilation and execution
 ```
