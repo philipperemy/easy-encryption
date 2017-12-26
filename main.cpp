@@ -4,27 +4,18 @@
 #include <iostream>
 #include <stdio.h>
 #include <ctype.h>
-#include "vigenere.h"
-#include "b64.h"
+#include "encrypt.h"
 
 using namespace std;
 
 int main() {
-
-	// vigenere encoding
-
-    std::string msg = "HELLO WORLD";
-    std::string key = "HELLOHELMYLONGESTKEYFSKFSKLFKLSDKLFSDKFSFDSFSD";
-    std::string encryptedMsg = encrypt_vigenere(msg, key);
-    std::string newKey = extend_key(msg, key);
-    std::string decryptedMsg = decrypt_vigenere(encryptedMsg, newKey);
-
- 	std::cout << "Original Message: " << msg << std::endl;
- 	std::cout << "Key: " << key << std::endl;
- 	std::cout << "New Generated Key: " <<  newKey << std::endl;
- 	std::cout << "Encrypted Message: " << encryptedMsg << std::endl;
- 	std::cout << "Decrypted Message: " << decryptedMsg << std::endl;
-
- 
+ 	// std::string msg = "HELLO WORLD";
+ 	std::string msg = "{\"id\":1,\"method\":\"service.subscribe\",\"params\":[\"myapp/0.1c\", null,\"0.0.0.0\",\"80\"]}";
+ 	std::string key = "THISISMYKEY";
+ 	std::cout << "  message to send: " << msg << std::endl;
+ 	std::string encrypted_msg = encrypt(msg, key);
+ 	std::cout << "encrypted message: " << encrypted_msg << std::endl;
+ 	std::string decrypted_msg = decrypt(encrypted_msg, key);
+ 	std::cout << "decrypted message: " << decrypted_msg << std::endl;
     return 0;
 }
