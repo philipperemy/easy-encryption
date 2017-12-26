@@ -19,6 +19,8 @@ The system is safe and unbreakable because:
 
 ## API
 
+### C++
+
 - **Encrypt message**
 ```
 std::string encrypt(std::string& msg, std::string& key)
@@ -27,6 +29,18 @@ std::string encrypt(std::string& msg, std::string& key)
 - **Decrypt message**
 ```
 std::string decrypt(std::string& encrypted_msg, std::string& key)
+```
+
+### Python
+
+- **Encrypt message**
+```
+wrapper.encrypt(message, key): returns encrypted message
+```
+
+- **Decrypt message**
+```
+wrapper.decrypt(encrypted_message, key): returns decrypted message
 ```
 
 ## Compilation and execution
