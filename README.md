@@ -22,43 +22,44 @@ The system is safe and unbreakable because:
 ### C++
 
 - **Encrypt message**
-```
+```c++
 std::string encrypt(std::string& msg, std::string& key)
 ```
 
 - **Decrypt message**
-```
+```c++
 std::string decrypt(std::string& encrypted_msg, std::string& key)
 ```
 
 ### Python
 
 - **Encrypt message**
-```
+```python
 wrapper.encrypt(message, key): returns encrypted message
 ```
 
 - **Decrypt message**
-```
+```python
 wrapper.decrypt(encrypted_message, key): returns decrypted message
 ```
 
 ## Compilation and execution
-```
+```bash
 g++ cl.cpp
 ./a.out "Hello world" MYPRIVATEKEY 0
 ```
 
 The encrypted message is: `ttz9JqxZHBClNtu=`.
 
-```
+```bash
 ./a.out ttz9JqxZHBClNtu= MYPRIVATEKEY 1
 ```
 
 The decrypted message is `Hello world`.
 
 ## Python wrapper
-```
+
+```bash
 rm a.out
 g++ cl.cpp
 python3 wrapper.py
@@ -67,7 +68,7 @@ python3 wrapper.py
 ## Example - Encoding/Decoding JSON format
 
 ### Source code
-```
+```c++
 #include <stdio.h>
 #include <string.h>
 #include <string>
