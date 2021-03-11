@@ -1,7 +1,7 @@
 # Easy Encryption
 A very simple yet powerful standalone C++ module (API) to obfuscate/deobfuscate strings based on B64 and Vigenere ciper (symmetric cipher).
 
-**DISCLAIMER: This encryption is NOT secure and can be used as a "cheap way" to obfuscate some messages in a communication channel. If you need a solid and unbreakable encryption, please use a widely adopted standard and well researched cipher like AES-GCM.**
+**DISCLAIMER: This encryption is NOT secure and can be used as a "cheap way" to obfuscate some messages in a communication channel. If you need a solid and unbreakable encryption, please use a widely adopted standard and well researched cipher like AES-GCM.** You can find more information there: [pyca](https://github.com/pyca/cryptography).
 
 
 It works as follows:
