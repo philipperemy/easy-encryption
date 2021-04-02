@@ -20,15 +20,19 @@ The reason why we apply b64 encode BEFORE Vigenere is because it's very easy for
 ## API
 
 ### C++
+- **Header** _(Always include this when you want to encrypt/decrypt something.)_
+```c++
+#include "<path>/EasyEncryption.h"
+```
 
 - **Encrypt message**
 ```c++
-std::string encrypt(std::string& msg, std::string& key)
+std::string EasyEncryption::encrypt(const std::string &encryptedString, const std::string &key)
 ```
 
 - **Decrypt message**
 ```c++
-std::string decrypt(std::string& encrypted_msg, std::string& key)
+std::string EasyEncryption::decrypt(const std::string &encryptedString, const std::string &key)
 ```
 
 ### Python
@@ -44,24 +48,11 @@ wrapper.decrypt(encrypted_message, key): returns decrypted message
 ```
 
 ## Compilation and execution
-```bash
-g++ cl.cpp
-./a.out "Hello world" MYPRIVATEKEY 0
-```
-
-The encrypted message is: `ttz9JqxZHBClNtu=`.
-
-```bash
-./a.out ttz9JqxZHBClNtu= MYPRIVATEKEY 1
-```
-
-The decrypted message is `Hello world`.
+To compile this project, just add the files that are inside the "src" into your project, then give import to them and the magic happens!
 
 ## Python wrapper
-
+To run it in Python, you need to compile the example that is located in "examples/application.cpp".
 ```bash
-rm a.out
-g++ cl.cpp
 python3 wrapper.py
 ```
 
@@ -69,33 +60,28 @@ python3 wrapper.py
 
 ### Source code
 ```c++
-#include <stdio.h>
-#include <string.h>
-#include <string>
 #include <iostream>
-#include <stdio.h>
-#include <ctype.h>
-#include "encrypt.h"
+#include "EasyEncryption.h"
 
-using namespace std;
+using namespace easy::encryption;
 
 int main() {
- 	// std::string msg = "HELLO WORLD";
- 	std::string msg = "{\"id\":1,\"method\":\"service.subscribe\",\"params\":[\"myapp/0.1c\", null,\"0.0.0.0\",\"80\"]}";
- 	std::string key = "THISISMYKEY";
- 	std::cout << "  message to send: " << msg << std::endl;
- 	std::string encrypted_msg = encrypt(msg, key);
- 	std::cout << "encrypted message: " << encrypted_msg << std::endl;
- 	std::string decrypted_msg = decrypt(encrypted_msg, key);
- 	std::cout << "decrypted message: " << decrypted_msg << std::endl;
+    std::string msg = "{\"id\":1,\"method\":\"service.subscribe\",\"params\":[\"myapp/0.1c\", null,\"0.0.0.0\",\"80\"]}";
+    std::string key = "THISISMYKEY";
+    
+    std::cout << "  message to send: " << msg << std::endl;
+    std::string encrypted_msg = EasyEncryption::encrypt(msg, key);
+    std::cout << "encrypted message: " << encrypted_msg << std::endl;
+    std::string decrypted_msg = EasyEncryption::decrypt(encrypted_msg, key);
+    std::cout << "decrypted message: " << decrypted_msg << std::endl;
+    
     return 0;
 }
-
 ```
 
 ### Output
 ```
   message to send: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
-encrypted message: X5g7wjjTllj1ItCxShWUb77PKJsfP VNMAB7VtqaLCccGTr0ijkjxqw0IutQvXfSFK4OKo8cnpD1Lge0pdMCZf0fqQ8bjjFjkNn1h pBtdwNJD==
+encrypted message: DBmhuTQWQNRFuT5DAPx4IkIYWOsM1M5vf4ecbTwgFginA0SEnTqRWp5eutYZZ9P2regxWvIkSZH5FNL8WLphgN4PXyIKOTJRpvYFmJWFYN5ytB==
 decrypted message: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
 ```

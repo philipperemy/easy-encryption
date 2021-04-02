@@ -1,23 +1,16 @@
-#include <stdio.h>
-#include <string.h>
-#include <string>
 #include <iostream>
-#include <stdio.h>
-#include <ctype.h>
-#include "vigenere.h"
-#include "b64.h"
+#include "../src/vigenere/Vigenere.h"
 
-using namespace std;
+using namespace easy::encryption::vigenere;
 
 int main() {
-
 	// Vigenere encoding
-
     std::string msg = "HELLO WORLD";
     std::string key = "THISISALONGPRIVATEKEY";
-    std::string encryptedMsg = encrypt_vigenere(msg, key);
-    std::string newKey = extend_key(msg, key);
-    std::string decryptedMsg = decrypt_vigenere(encryptedMsg, newKey);
+
+    std::string encryptedMsg = Vigenere::encrypt(msg, key);
+    std::string newKey = Vigenere::extend_key(msg, key);
+    std::string decryptedMsg = Vigenere::decrypt(encryptedMsg, newKey);
 
  	std::cout << "Original Message : " << msg << std::endl;
  	std::cout << "Key              : " << key << std::endl;
