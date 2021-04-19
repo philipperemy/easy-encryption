@@ -3,8 +3,8 @@
 using namespace easy::encryption::vigenere;
 
 int Vigenere::index(char c) {
-    for (int i = 0; i < AVAILABLE_CHARS_SIZE; i++)
-        if (AVAILABLE_CHARS[i] == c)
+    for (int i = 0; i < VIGENERE_AVAILABLE_CHARS_SIZE; i++)
+        if (VIGENERE_AVAILABLE_CHARS[i] == c)
             return i;
     return -1;
 }
@@ -31,7 +31,7 @@ std::string Vigenere::encrypt(const std::string &decryptedString, const std::str
 
     // Encryption
     for (i = 0; i < decryptedStringLen; ++i)
-        encryptedString[i] = isalnum(decryptedString[i]) or decryptedString[i] == ' ' ? AVAILABLE_CHARS[((index(decryptedString[i]) + index(newKey[i])) % AVAILABLE_CHARS_SIZE)] : decryptedString[i];
+        encryptedString[i] = isalnum(decryptedString[i]) or decryptedString[i] == ' ' ? VIGENERE_AVAILABLE_CHARS[((index(decryptedString[i]) + index(newKey[i])) % VIGENERE_AVAILABLE_CHARS_SIZE)] : decryptedString[i];
     encryptedString[i] = '\0';
 
     return encryptedString;
@@ -44,7 +44,7 @@ std::string Vigenere::decrypt(const std::string &encryptedString, const std::str
 
     // Decryption
     for (i = 0; i < encryptedStringLen; ++i)
-        decryptedString[i] = isalnum(encryptedString[i]) or encryptedString[i] == ' ' ? AVAILABLE_CHARS[(((index(encryptedString[i]) - index(newKey[i])) + AVAILABLE_CHARS_SIZE) % AVAILABLE_CHARS_SIZE)] : encryptedString[i];
+        decryptedString[i] = isalnum(encryptedString[i]) or encryptedString[i] == ' ' ? VIGENERE_AVAILABLE_CHARS[(((index(encryptedString[i]) - index(newKey[i])) + VIGENERE_AVAILABLE_CHARS_SIZE) % VIGENERE_AVAILABLE_CHARS_SIZE)] : encryptedString[i];
     decryptedString[i] = '\0';
 
     return decryptedString;

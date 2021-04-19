@@ -11,13 +11,13 @@ std::string Base64::encode(const std::string &in) {
         valB += 8;
 
         while (valB >= 0) {
-            out.push_back(AVAILABLE_CHARS[(valA >> valB) & 0x3F]);
+            out.push_back(BASE64_AVAILABLE_CHARS[(valA >> valB) & 0x3F]);
             valB -= 6;
         }
     }
 
     if (valB > -6)
-        out.push_back(AVAILABLE_CHARS[((valA << 8) >> (valB + 8)) & 0x3F]);
+        out.push_back(BASE64_AVAILABLE_CHARS[((valA << 8) >> (valB + 8)) & 0x3F]);
 
     while (out.size() % 4)
         out.push_back('=');
@@ -29,8 +29,8 @@ std::string Base64::decode(const std::string &in) {
     std::string out;
     std::vector<int> T(256, -1);
 
-    for (int i = 0; i < AVAILABLE_CHARS_SIZE; i++)
-        T[AVAILABLE_CHARS[i]] = i;
+    for (int i = 0; i < BASE64_AVAILABLE_CHARS_SIZE; i++)
+        T[BASE64_AVAILABLE_CHARS[i]] = i;
 
     int valA = 0, valB = -8;
     for (char c : in) {
