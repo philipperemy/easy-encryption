@@ -10,7 +10,8 @@ int Vigenere::index(char c) {
 }
 
 std::string Vigenere::extend_key(const std::string &string, const std::string &key) {
-    int i, j, stringLen = string.size(), keyLen = key.size();
+    int i, j;
+    uint64_t stringLen = string.size(), keyLen = key.size();
     std::string newKey(stringLen, 'x');
 
     // Generating new key
@@ -25,7 +26,8 @@ std::string Vigenere::extend_key(const std::string &string, const std::string &k
 }
 
 std::string Vigenere::encrypt(const std::string &decryptedString, const std::string &key) {
-    int i, decryptedStringLen = decryptedString.size();
+    int i;
+    uint64_t decryptedStringLen = decryptedString.size();
     std::string encryptedString(decryptedStringLen, 'x');
     std::string newKey = extend_key(decryptedString, key);
 
@@ -38,7 +40,8 @@ std::string Vigenere::encrypt(const std::string &decryptedString, const std::str
 }
 
 std::string Vigenere::decrypt(const std::string &encryptedString, const std::string &key) {
-    int i, encryptedStringLen = encryptedString.size();
+    int i;
+    uint64_t encryptedStringLen = encryptedString.size();
     std::string decryptedString(encryptedStringLen, 'x');
     std::string newKey = extend_key(encryptedString, key);
 
