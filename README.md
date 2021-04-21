@@ -1,21 +1,19 @@
 # Easy Encryption
-A very simple standalone C++ module (API) to obfuscate/deobfuscate strings based on B64 and Vigenere ciper (symmetric cipher).
+A very simple standalone C++11 library to obfuscate/deobfuscate strings based on Base64 and Vigenere cipher (Symmetric cipher).
 
 **DISCLAIMER: This encryption is NOT secure and can be used as a "cheap way" to obfuscate some messages in a communication channel. If you need a solid and unbreakable encryption, please use a widely adopted standard and well researched cipher like AES-GCM.** You can find more information there: [pyca](https://github.com/pyca/cryptography).
 
-
 It works as follows:
-
-- Alice encodes in base64 the message, then uses the Vigenere private key to encrypt the message.
+- Alice encodes in Base64 the message, then uses the Vigenere private key to encrypt the message.
 - The encrypted message is sent through an unsecured channel.
-- Bob gets the message and decrypts it with the Vigenere private key. He then decodes it with base64.
+- Bob gets the message and decrypts it with the Vigenere private key, and then decodes it with Base64.
 
 Diagram summary:
-_______________________________________________________________________________________________________________
-**Message -> B64 ENCODE -> VIGENERE ENCRYPT -> encrypted message -> VIGENERE DECRYPT -> B64 DECODE -> Message**
-_______________________________________________________________________________________________________________
+___
+**Message -> Base64 ENCODE -> Vigenere ENCRYPT -> Encrypted Message -> Vigenere DECRYPT -> Base64 DECODE -> Message**
+___
 
-The reason why we apply b64 encode BEFORE Vigenere is because it's very easy for somebody to apply a b64 decode and see about the structure of the message. For example, if we send `{"hello":123}`, an attacker can sniff the message, b64 decode the message and get `{"qsggn":ygf}`. Of course the attacker still needs the Vigenere cipher key, but at least, he can get a pretty clear idea that JSON format messages are sent in the communication channel. The way to avoid this is to encode first in b64 then encrypt it with the Vigenere key. If the attacker tries to b64 decode first, it will see a random string of weird characters.
+The reason why we apply Base64 encode **BEFORE** Vigenere is because it's very easy for somebody to apply a Base64 decode and see about the structure of the message. For example, if we send `{"hello":123}`, an attacker can sniff the message, Base64 decode the message and get `{"qsggn":ygf}`. Of course the attacker still needs the Vigenere cipher key, but at least, he can get a pretty clear idea that JSON format messages are sent in the communication channel. The way to avoid this is to encode first in Base64 then encrypt it with the Vigenere key. If the attacker tries to Base64 decode first, it will see a random string of weird characters.
 
 ## API
 
