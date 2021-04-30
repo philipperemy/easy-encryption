@@ -1,3 +1,8 @@
+![](banner.jpg)
+[![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/Windows%20CMake?label=Windows%20Build&logo=windows&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/windows-cmake.yml)
+[![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/Linux%20CMake?label=Linux%20Build&logo=linux&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/linux-cmake.yml)
+[![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/macOS%20CMake?label=macOS%20Build&logo=apple&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/macos-cmake.yml)
+
 # Easy Encryption
 A very simple standalone C++11 library to obfuscate/deobfuscate strings based on Base64 and Vigenere cipher (Symmetric cipher).
 
