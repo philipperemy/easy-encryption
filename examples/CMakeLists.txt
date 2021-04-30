@@ -1,3 +1,6 @@
-cmake_minimum_required(VERSION 3.5)
+link_libraries(${PROJECT_NAME})
 
-project(easy_encryption_examples)
+add_executable(application application.cpp)
+add_executable(application_main main.cpp)
+add_executable(application_base64 main_base64.cpp)
+add_executable(application_vigenere main_vigenere.cpp)
