@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../src/vigenere/Vigenere.h"
 
-using namespace easy::encryption::vigenere;
+using namespace easy::encryption;
 
 int main() {
 	// Vigenere encoding

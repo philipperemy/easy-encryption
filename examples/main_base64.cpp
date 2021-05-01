@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../src/base64//Base64.h"
 
-using namespace easy::encryption::base64;
+using namespace easy::encryption;
 
 int main() {
     // Base64 encoding
