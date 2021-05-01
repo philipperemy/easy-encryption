@@ -5,7 +5,7 @@ option(EASY_ENCRYPTION_EXAMPLES "Build examples?" ON)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(${PROJECT_NAME} SHARED src/base64/Base64.cc src/vigenere/Vigenere.cc src/EasyEncryption.cc)
+add_library(${PROJECT_NAME} STATIC src/base64/Base64.cc src/vigenere/Vigenere.cc src/EasyEncryption.cc)
 
 if(EASY_ENCRYPTION_EXAMPLES)
     add_subdirectory(examples)
