@@ -1,7 +1,5 @@
 #include "EasyEncryption.h"
 
-using namespace easy::encryption;
-
 std::string EasyEncryption::encrypt(const std::string &decryptedString, const std::string &key) {
     // Encrypt first as Base64
     const std::string b64_encoded_str = Base64::encode(decryptedString);

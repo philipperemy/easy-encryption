@@ -3,6 +3,7 @@
 #include "base64/Base64.h"
 #include "vigenere/Vigenere.h"
 
+using namespace easy::encryption;
 namespace easy {
     namespace encryption {
 
