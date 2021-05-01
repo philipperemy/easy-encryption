@@ -1,6 +1,6 @@
 #include "Base64.h"
 
-using namespace easy::encryption::base64;
+using namespace easy::encryption;
 
 std::string Base64::encode(const std::string &in) {
     std::string out;
@@ -20,7 +20,7 @@ std::string Base64::encode(const std::string &in) {
         out.push_back(BASE64_AVAILABLE_CHARS[((valA << 8) >> (valB + 8)) & 0x3F]);
 
     while (out.size() % 4)
-        out.push_back('=');
+        out.push_back(0x3D);
 
     return out;
 }
