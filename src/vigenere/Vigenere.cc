@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Vigenere.h"
 
 using namespace easy::encryption;
@@ -10,7 +11,7 @@ int Vigenere::index(char c) {
 }
 
 std::string Vigenere::extend_key(const std::string &string, const std::string &key) {
-    uint64_t stringLen = string.size(), keyLen = key.size();
+    unsigned long long int stringLen = string.size(), keyLen = key.size();
     std::string newKey(stringLen, 0x0);
 
     // Generating new key
@@ -23,7 +24,7 @@ std::string Vigenere::extend_key(const std::string &string, const std::string &k
 }
 
 std::string Vigenere::encrypt(const std::string &decryptedString, const std::string &key) {
-    uint64_t decryptedStringLen = decryptedString.size();
+    unsigned long long int decryptedStringLen = decryptedString.size();
     std::string newKey = extend_key(decryptedString, key);
     std::string encryptedString(decryptedStringLen, 0x0);
 
@@ -35,7 +36,7 @@ std::string Vigenere::encrypt(const std::string &decryptedString, const std::str
 }
 
 std::string Vigenere::decrypt(const std::string &encryptedString, const std::string &key) {
-    uint64_t encryptedStringLen = encryptedString.size();
+    unsigned long long int encryptedStringLen = encryptedString.size();
     std::string newKey = extend_key(encryptedString, key);
     std::string decryptedString(encryptedStringLen, 0x0);
 

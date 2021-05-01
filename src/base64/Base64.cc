@@ -3,11 +3,12 @@
 using namespace easy::encryption;
 
 std::string Base64::encode(const std::string &in) {
-    std::string out;
+    unsigned long long int inStringLen = in.size();
     int valA = 0, valB = -6;
+    std::string out;
 
-    for (char c : in) {
-        valA = (valA << 8) + c;
+    for (int i = 0; i < inStringLen; i++) {
+        valA = (valA << 8) + in[i];
         valB += 8;
 
         while (valB >= 0) {
@@ -26,18 +27,20 @@ std::string Base64::encode(const std::string &in) {
 }
 
 std::string Base64::decode(const std::string &in) {
-    std::string out;
+    unsigned long long int inStringLen = in.size();
     std::vector<int> T(256, -1);
+    std::string out;
 
-    for (int i = 0; i < BASE64_AVAILABLE_CHARS_SIZE; i++)
+    int i;
+    for (i = 0; i < BASE64_AVAILABLE_CHARS_SIZE; i++)
         T[BASE64_AVAILABLE_CHARS[i]] = i;
 
     int valA = 0, valB = -8;
-    for (char c : in) {
-        if (T[c] == -1)
+    for (i = 0; i < inStringLen; i++) {
+        if (T[in[i]] == -1)
             break;
 
-        valA = (valA << 6) + T[c];
+        valA = (valA << 6) + T[in[i]];
         valB += 6;
 
         if (valB >= 0) {

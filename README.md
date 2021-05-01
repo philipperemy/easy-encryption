@@ -1,10 +1,11 @@
 ![](banner.jpg)
+[![](https://img.shields.io/static/v1?label=C%2B%2B%20Version&message=98&color=%2300599C&logo=c%2B%2B&logoColor=%23FFFFFF&style=flat-square)](https://www.cplusplus.com/doc/oldtutorial/)
 [![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/Windows%20CMake?label=Windows%20Build&logo=windows&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/windows-cmake.yml)
 [![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/Linux%20CMake?label=Linux%20Build&logo=linux&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/linux-cmake.yml)
 [![](https://img.shields.io/github/workflow/status/philipperemy/easy-encryption/macOS%20CMake?label=macOS%20Build&logo=apple&logoColor=%23FFFFFF&style=flat-square)](https://github.com/philipperemy/easy-encryption/actions/workflows/macos-cmake.yml)
 
 # Easy Encryption
-A very simple standalone C++11 library to obfuscate/deobfuscate strings based on Base64 and Vigenere cipher (Symmetric cipher).
+A very simple standalone C++98 library to obfuscate/deobfuscate strings based on Base64 and Vigenere cipher (Symmetric cipher).
 
 **DISCLAIMER: This encryption is NOT secure and can be used as a "cheap way" to obfuscate some messages in a communication channel. If you need a solid and unbreakable encryption, please use a widely adopted standard and well researched cipher like AES-GCM.** You can find more information there: [pyca](https://github.com/pyca/cryptography).
 
@@ -57,34 +58,4 @@ To compile this project, just add the files that are inside the "src" into your 
 To run it in Python, you need to compile the example that is located in "examples/application.cpp".
 ```bash
 python3 wrapper.py
-```
-
-## Example - Encoding/Decoding JSON format
-
-### Source code
-```c++
-#include <iostream>
-#include "EasyEncryption.h"
-
-using namespace easy::encryption;
-
-int main() {
-    std::string msg = "{\"id\":1,\"method\":\"service.subscribe\",\"params\":[\"myapp/0.1c\", null,\"0.0.0.0\",\"80\"]}";
-    std::string key = "THISISMYKEY";
-    
-    std::cout << "  message to send: " << msg << std::endl;
-    std::string encrypted_msg = EasyEncryption::encrypt(msg, key);
-    std::cout << "encrypted message: " << encrypted_msg << std::endl;
-    std::string decrypted_msg = EasyEncryption::decrypt(encrypted_msg, key);
-    std::cout << "decrypted message: " << decrypted_msg << std::endl;
-    
-    return 0;
-}
-```
-
-### Output
-```
-  message to send: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
-encrypted message: DBmhuTQWQNRFuT5DAPx4IkIYWOsM1M5vf4ecbTwgFginA0SEnTqRWp5eutYZZ9P2regxWvIkSZH5FNL8WLphgN4PXyIKOTJRpvYFmJWFYN5ytB==
-decrypted message: {"id":1,"method":"service.subscribe","params":["myapp/0.1c", null,"0.0.0.0","80"]}
 ```

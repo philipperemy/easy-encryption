@@ -3,7 +3,7 @@ project(easy_encryption)
 
 option(EASY_ENCRYPTION_EXAMPLES "Build examples?" ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 98)
 
 add_library(${PROJECT_NAME} STATIC src/base64/Base64.cc src/vigenere/Vigenere.cc src/EasyEncryption.cc)
 

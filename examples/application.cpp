@@ -1,4 +1,6 @@
 #include <iostream>
+#include <sstream>
+
 #include "../src/EasyEncryption.h"
 
 using namespace easy::encryption;
@@ -15,7 +17,10 @@ int main(int argc, char **argv) {
 
     std::string msg = argv[1];
     std::string key = argv[2];
-    int encrypt_flag = atoi(argv[3]);
+    std::stringstream encrypt_flag_string(argv[3]);
+
+    int encrypt_flag = 0;
+    encrypt_flag_string >> encrypt_flag;
 
     if (encrypt_flag == 0) {
         std::cout << EasyEncryption::encrypt(msg, key) << std::endl;
