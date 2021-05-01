@@ -1,13 +1,10 @@
 import subprocess
 
-
 def decrypt(message, key):
-    return subprocess.check_output(['./a.out', message, key, "1"]).decode('utf8').strip()
-
+    return subprocess.check_output(['./application.out', message, key, "1"]).decode('utf8').strip()
 
 def encrypt(message, key):
-    return subprocess.check_output(['./a.out', message, key, "0"]).decode('utf8').strip()
-
+    return subprocess.check_output(['./application.out', message, key, "0"]).decode('utf8').strip()
 
 if __name__ == '__main__':
     original_msg = 'Hello world'
