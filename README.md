@@ -60,7 +60,7 @@ The decrypted message is `Hello world`.
 ## Python wrapper
 
 ```bash
-g++ cl.cpp
+g++ cl.cpp Base64.cpp
 python3 wrapper.py
 ```
 
@@ -89,7 +89,6 @@ int main() {
  	std::cout << "decrypted message: " << decrypted_msg << std::endl;
     return 0;
 }
-
 ```
 
 ### Output
