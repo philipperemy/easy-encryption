@@ -45,7 +45,7 @@ wrapper.decrypt(encrypted_message, key): returns decrypted message
 
 ## Compilation and execution
 ```bash
-g++ cl.cpp
+g++ cl.cpp Base64.cpp
 ./a.out "Hello world" MYPRIVATEKEY 0
 ```
 
@@ -60,7 +60,6 @@ The decrypted message is `Hello world`.
 ## Python wrapper
 
 ```bash
-rm a.out
 g++ cl.cpp
 python3 wrapper.py
 ```
